@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List - CSI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ 
+ 
+
+    
+   
+
+
+  <!--main container-->
+  <div class="main-container" id="
+  main-container">
+
+  <!--task header-->
+  <div class="task-header">
+    <div class="add-task">
+      <h1>Task</h1>
+      <button id="add-task" onclick="showAddPopup()">
+        <img src="add.gif" alt="">
+      </button>
+    </div>
+
+    <div class="header-details">
+      <!--header detail list-->
+      <div class="total-task" id="totalTask">Task : </div>
+      <div id="task-done-counter">Done : 0</div>
+      <div class="progress">
+        in progress : 5
+
+      </div>
+    </div>
+  </div>
+
+  <div class="task-section">
+    <div class="task-list" id="listTask">
+        
+    </div>
+    
+    <div class="to-do">
+      <div class="do-now-heading">
+        <h1>DO NOW</h1>  
+        <button id="summary" onclick="addSummary()">
+        Summary</button>
+        <button id="start-all" onclick="rapidFireTask()">Start All</button>
+      </div>
+
+       <div class="nowTaskList" id="nowTaskList">
+        
+       </div>
+
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+</div> <!-- end of main-container -->
+
+
+<div class="main-summary-div">
+
+  <div class="summary-header">
+    <h1>Summary of the Day</h1>
+  </div>
+
+  <div class="summary-details" id="summary-details">
+    
+  </div>
+
+</div>
+<!-- ✅ Popup goes here (outside main-container) -->
+<div class="overlay" id="overlay"></div>
+<div class="popup" id="popup">
+
+  
+  
+
+  <form id="addTaskForm">
+    
+    <h2>Add New Task</h2>
+    <input type="text" id="taskInput" name="taskname" placeholder="Enter task name">
+
+    <h3>Start</h3>
+    <input type="date" id="start-date" name="taskstart">
+
+    <h3>End</h3>
+    <input type="date" id="end-date" name="taskend">
+
+    <div class="task-priority">
+      <select class="progress">
+            <option value="in-progress">In Progress</option>
+            <option value="done">Done</option>
+            <option value="not started">Not started</option>
+        </select> 
+
+        <select class="difficulty">
+            <option value="hard">Hard</option>
+            <option value="medium">Medium</option>
+            <option value="easy">Easy</option>
+        </select>
+    </div>
+   
+  </form>
+
+   <div class="add-task-btns">
+      <button id="addTaskBtn" type="button" onclick="addTask()">
+        <img src="plus.png" alt=""><span>Add</span></button>
+      <button id="closebtn" type="button" onclick="closeAddPopup()">
+        <img src="x-button.png" alt=""><span>cancel</span></button>
+    </div>
+  
+</div>
+
+
+<div class="task-timer-div" id="task-timer-div"></div>
+
+<div class="timer-popup" id="timer-popup">
+  <div class="task-timer-input">
+    <input type="number" placeholder="Hours" id="timer-hours" min="0">
+    <input type="number" placeholder="Minutes" id="timer-minutes" min="0">
+    <input type="number" placeholder="Seconds" id="timer-seconds" min="0">
+  </div>
+   
+
+  <div id="timer-display">
+    00:00:00
+  </div>
+
+  <div class="timer-btns">
+    <button id="btn-timer-start" onclick="startTimer()">Start</button>
+  <button id="btn-timer-set" onclick="setTime()">set</button>
+  <button id="btn-timer-pause" onclick="pauseTimer()">pause</button>
+  <button id="btn-timer-reset" onclick="resetTimer()">reset</button>
+  <button id="btn-timer-close" onclick="closeTimer()">Close</button>
+  <button id="btn-timer-skip" onclick="skipTimer()">skip</button>
+  </div>
+
+
+    
+</div>
+
+
+<div class="rapid-fire-overlay" id="rapid-fire-overlay"></div>
+<div class="rapid-fire-popup" id="rapid-fire-popup">
+  <h3>start all tasks</h3>
+  
+
+  
+
+   
+  </div>
+</div>
+
+    <script src="script(1).js"></script>
+</body>
+</html>
