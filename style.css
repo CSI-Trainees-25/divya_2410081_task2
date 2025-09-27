@@ -7,13 +7,8 @@
 
 body{
 
-    background: #360314;
-background: linear-gradient(157deg,rgba(54, 3, 20, 1) 24%, rgba(62, 14, 97, 1) 47%, rgba(2, 70, 84, 1) 92%);
-
-    
-    height: 100vh;
-    
-    
+   
+height: 100vh;
 
 }
 #summary, #start-all{
@@ -44,7 +39,10 @@ background: linear-gradient(157deg,rgba(54, 3, 20, 1) 24%, rgba(62, 14, 97, 1) 4
    
 }
 
- @keyframes fade-in-left-normal {0% { transform: translateX(-50px); opacity: 0; } 100% { transform: translateX(0); opacity: 1;} }
+ @keyframes mainContainer {0% 
+    { transform: translateX(-50px); opacity: 0; }
+     100% { transform: translateX(0); opacity: 1;}
+}
 
   
 
@@ -58,14 +56,14 @@ background: linear-gradient(157deg,rgba(54, 3, 20, 1) 24%, rgba(62, 14, 97, 1) 4
    height: 85%;
    border-radius: 10px;
    width: 80%;
-   margin: 6% 12%;
+   margin: 4.5% 12%;
     box-shadow: 2px 7px 10px rgba(226, 225, 225, 0.61);
     background-color: #1e1e2f;
     padding: 20px 30px;
     backdrop-filter: blur(6px);
     
 
-    animation: fade-in-left-normal 1s ease 0s 1 normal none; 
+    animation: mainContainer .8s ease 0s 1 ; 
 
 }
 
@@ -73,7 +71,7 @@ background: linear-gradient(157deg,rgba(54, 3, 20, 1) 24%, rgba(62, 14, 97, 1) 4
     
     height: 18%;
     width: 100%;
-    background-color: #d79105b0;
+    background-color: #e1a01d;
     backdrop-filter: blur(6px);
 
 
@@ -108,6 +106,9 @@ background: linear-gradient(157deg,rgba(54, 3, 20, 1) 24%, rgba(62, 14, 97, 1) 4
 
 @media (max-width: 768px) {
 
+    .main-container{
+        height: auto;
+    }
   .task-header {
     flex-direction: column; 
     height: auto;          
@@ -141,7 +142,7 @@ background: linear-gradient(157deg,rgba(54, 3, 20, 1) 24%, rgba(62, 14, 97, 1) 4
 
   .task-div p{
     display: flex;
-    
+   
     flex-wrap: wrap;
     width: 100%;
 
@@ -175,7 +176,7 @@ background: linear-gradient(157deg,rgba(54, 3, 20, 1) 24%, rgba(62, 14, 97, 1) 4
 .task-section{
     height: 80%;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.681);
+    background-color: rgba(255, 255, 255, 0.886);
     border-radius: 10px;
     backdrop-filter: blur(6px);
     
@@ -285,17 +286,20 @@ background: linear-gradient(157deg,rgba(54, 3, 20, 1) 24%, rgba(62, 14, 97, 1) 4
     font-weight: 700;
 
 }
- @keyframes fade-in-bottom-normal {0% { transform: translateY(50px); opacity: 0; } 100% { transform: translateY(0); opacity: 1;} }
+ @keyframes taskDiv {0% 
+    { transform: translateY(-50px); opacity: 0; } 
+    100% { transform: translateY(0); opacity: 1;}
+ }
 
  .task-div{
-    animation: fade-in-bottom-normal 1s ease 0s 1 normal none; 
+    animation: taskDiv .7s ease 0s 1 normal none; 
 }
  
 .task-div, #nowTaskList {
     border: 3px solid rgb(212, 212, 212);
     background-color: rgba(255, 255, 255, 0.64);
 text-transform: capitalize;
-   max-height: fit-content;
+   
    padding: 2% 5%;
    margin-top: 2%;
    border-radius: 10px;
@@ -304,8 +308,12 @@ text-transform: capitalize;
 
 }
 
+#nowTaskList{
+    height: 100px;
+}
+
 .task-div p{
-    background-color: white;
+    
     
     margin-top: 10px;
     font-size: 1rem;
@@ -314,8 +322,19 @@ text-transform: capitalize;
     padding: 5px 3%;
     
     max-width: max-content;
-    
+}
 
+
+.task-dropdowns{
+    display: flex;
+    gap: 1%;
+}
+.task-drop{
+    background-color: red;
+    color: white;
+
+   outline:none;
+   font-weight: 550;
 }
 
 .taskobjheader{
@@ -471,7 +490,10 @@ color: white;
     color: white;
 }
 
- @keyframes popup-show {0% {  opacity: 0;} 100% { opacity: 1;} }
+ @keyframes popup-show {
+    0% {  opacity: 0;} 
+    100% { opacity: 1;}
+ }
 
 .popup , .timer-popup , .rapid-fire-popup {
     
@@ -489,7 +511,7 @@ color: white;
    
   border-radius: 10px;
   box-shadow: 0px 6px 15px rgba(0,0,0,0.3);
-  z-index: 101;                /* sits above overlay */
+  z-index: 101;                
   opacity: 1;
   
   /
@@ -765,18 +787,22 @@ font-family: sans-serif;
 
 }
 
+.task-drop{
+    background-color: red;
 
+}
 
 
 
 
 .main-summary-div{
-    background-color: rgba(255, 0, 0, 0.322);
+   
+    background-color: rgba(255, 255, 255, 0.322);
     height: 75%;
    border-radius: 10px;
    width: 70%;
    margin: 10% 20%;
-   
+   border: 2px solid rgba(255, 255, 255, 0.4);
     padding: 10px 20px;
     display: flex;
     flex-direction: column;
@@ -784,10 +810,12 @@ font-family: sans-serif;
 }
 
 .summary-header{
-    background-color: white;
+    background-color: rgb(169, 110, 0);
     border-radius: 10px;
     padding: 5% 7%;
-    
+    color: white;
+    font-family: sans-serif;
+
     display: flex;
     
     justify-content: center;
@@ -797,7 +825,11 @@ font-family: sans-serif;
     height: 10%;
 
 }
+.summary-header h1{
+    font-family: sans-serif;
+    font-size: 3rem;
 
+}
 #summary-details{
     background-color: rgba(255, 255, 255, 0.652);
     min-height: 70%;

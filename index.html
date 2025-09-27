@@ -32,8 +32,8 @@
       <!--header detail list-->
       <div class="total-task" id="totalTask">Task : </div>
       <div id="task-done-counter">Done : 0</div>
-      <div class="progress">
-        in progress : 5
+      <div class="progress" id="progress">
+        
 
       </div>
     </div>
@@ -64,7 +64,7 @@
 
 </div> <!-- end of main-container -->
 
-
+<!--
 <div class="main-summary-div">
 
   <div class="summary-header">
@@ -76,7 +76,9 @@
   </div>
 
 </div>
-<!-- ✅ Popup goes here (outside main-container) -->
+
+-->
+
 <div class="overlay" id="overlay"></div>
 <div class="popup" id="popup">
 
@@ -95,13 +97,13 @@
     <input type="date" id="end-date" name="taskend">
 
     <div class="task-priority">
-      <select class="progress">
+      <select class="progress" id="taskProgress">
             <option value="in-progress">In Progress</option>
             <option value="done">Done</option>
             <option value="not started">Not started</option>
         </select> 
 
-        <select class="difficulty">
+        <select class="difficulty" id="taskDifficulty">
             <option value="hard">Hard</option>
             <option value="medium">Medium</option>
             <option value="easy">Easy</option>
