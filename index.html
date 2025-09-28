@@ -30,10 +30,10 @@
 
     <div class="header-details">
       <!--header detail list-->
-      <div class="total-task" id="totalTask">Task : </div>
+      <div class="total-task" id="totalTask">Task : 0 </div>
       <div id="task-done-counter">Done : 0</div>
       <div class="progress" id="progress">
-        
+        In Progress :0
 
       </div>
     </div>
@@ -93,6 +93,10 @@
     <h3>Start</h3>
     <input type="date" id="start-date" name="taskstart">
 
+     <h3>Time</h3>
+    <input type="time" id="start-time" name="taskstart" step="1">
+
+
     <h3>End</h3>
     <input type="date" id="end-date" name="taskend">
 
@@ -133,7 +137,7 @@
    
 
   <div id="timer-display">
-    00:00:00
+
   </div>
 
   <div class="timer-btns">

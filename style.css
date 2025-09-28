@@ -104,6 +104,23 @@ height: 100vh;
     padding: 4px 10px;
 }
 
+.task-rem{
+    cursor: pointer;
+    transition: all .2s ease;
+    border-radius: 50%;
+    height: 1.8rem;
+    width: 1.8rem;
+    font-weight: 600;
+    
+    background-color: black;
+    color: white;
+    margin-left: 35%;
+}
+
+.task-rem:hover{
+    background-color: rgba(0, 0, 0, 0.624);
+}
+
 @media (max-width: 768px) {
 
     .main-container{
@@ -309,7 +326,7 @@ text-transform: capitalize;
 }
 
 #nowTaskList{
-    height: 100px;
+    height: auto;
 }
 
 .task-div p{
@@ -497,7 +514,7 @@ color: white;
 
 .popup , .timer-popup , .rapid-fire-popup {
     
-    animation: popup-show 1s ease ;
+    animation: popup-show .5s ease ;
   display: none;             
   position: fixed;
   border-radius: 30px;

@@ -31,7 +31,7 @@ const taskTimerOver=document.getElementById("task-timer-div");
 
 const taskTimerPopup=document.getElementById("timer-popup");
 
-const timerDisplay=document.getElementById("timer-display");
+//const timerDisplay=document.getElementById("timer-display");
 
 
 
@@ -45,91 +45,93 @@ function closeAddPopup(){
     addOverlay.style.display="none";
 }
 
-function addTask(){
-
-    //getting input data
-    let taskName=document.getElementById("taskInput");
-    let taskStart=document.getElementById("start-date");
-    let taskEnd=document.getElementById("end-date");
-
-    let taskP=document.getElementById("taskProgress");
-    let taskDiff=document.getElementById("taskDifficulty");
-    
-
-    //adding to objects
-    const taskObj={
-        task_name:taskName.value,
-        task_start:taskStart.value,
-        task_end:taskEnd.value,
-        task_pro:taskP.value,
-        task_diff:taskDiff.value
-    }
-    
-
-    //pushing into array
-    taskAdded.push(taskObj);
-    localStorage.setItem("tasks", JSON.stringify(taskAdded));
+let setTimer="";
 
 
-    taskCount.innerHTML=`Task : ${taskAdded.length}`
+function renderTask(){
+  const taskList = document.getElementById("listTask");
+    taskList.innerHTML = ""; // clear previous render
 
-    //console.log(taskAdded);
+    taskAdded.forEach(taskObj => {
+        const task_div = document.createElement("div");
+        task_div.className = "task-div";
 
-    //clearing inputs
-    taskName.value="";
-    taskStart.value="";
-    taskEnd.value="";
+        task_div.innerHTML = `
+          <div class="taskobjheader">
+                <h3>${taskObj.task_name}</h3>
+                <p><span> From :</span> ${taskObj.task_start}</p>
+          </div>
+          
+          <p class="task-drop">${taskObj.task_diff}</p>
+          
+          <p><span> To :</span> ${taskObj.task_end}
+          <button class="to-do-now">Move To Do</button></p>
+        `;
 
 
-    //a dynamic div creation
-    taskAdded.forEach(taskObj=>{
-      
-    const taskList=document.getElementById("listTask");
-
-
-    const task_div=document.createElement("div");
-    task_div.className="task-div";
-
-   taskList.innerHTML = ""
-
-    task_div.innerHTML=`
-      <div class="taskobjheader">
-            <h3>${taskObj.task_name}</h3>
-            <p><span> From :</span>${taskObj.task_start}</p>
-            
-        </div>
-        
-        
-        <p class="task-drop">${taskObj.task_diff}</p>
-        
-        
-        <p><span> To :</span> ${taskObj.task_end}
-        <button class="to-do-now"  >Move To Do</button></p> 
-    
-    `
-
-    taskList.appendChild(task_div);
-
-    const moveBtn=task_div.querySelector(".to-do-now");
+         const moveBtn=task_div.querySelector(".to-do-now");
     
     moveBtn.addEventListener("click",()=>{
         taskDoNow.push(taskObj);
         taskProgress.innerHTML=`Progress : ${taskDoNow.length}`
 
         localStorage.setItem("toDotasks",JSON.stringify(taskDoNow));
+
+
+        const index = taskAdded.indexOf(taskObj);
+    if (index > -1) {
+        taskAdded.splice(index, 1);
+        localStorage.setItem("tasks", JSON.stringify(taskAdded));
+    }
         //console.log(taskDoNow)
 
-        const now_task_list=document.getElementById("nowTaskList");
+       renderdoNow();
+        task_div.remove();
 
-        const taskToDo=document.createElement("div")
-        taskToDo.className="do-now";
-        taskToDo.innerHTML=`<p><span>Task:</span> ${taskObj.task_name}</p>
-            <button class="set-timer">Set Timer</button>
-            <button class="task-done">Mark done</button>`;
+      
+});
+
+        taskList.appendChild(task_div);
+
+});
+ taskCount.innerHTML = `Task : ${taskAdded.length}`;
+}
+
+
+function renderdoNow(){
+  const now_task_list = document.getElementById("nowTaskList");
+    now_task_list.innerHTML = "";
+
+    taskDoNow.forEach(taskObj => {
+        const taskToDo = document.createElement("div");
+        taskToDo.className = "do-now";
+
+        taskToDo.innerHTML = `
+          <p><span>Task:</span> ${taskObj.task_name}</p>
+          <p><span>Task:</span> ${taskObj.task_time}</p>
+
+          <button class="set-timer">Set Timer</button>
+          <button class="task-done">Mark done</button>
+          <button class="task-rem">x</button>
+          <p class="setTimer"></p>
+        `;
+
+
+        const taskremove=taskToDo.querySelector(".task-rem");
+        taskremove.addEventListener("click",()=>{
+          const done_index = taskDoNow.indexOf(taskObj);
+          if (done_index > -1) {
+        taskDoNow.splice(done_index, 1);
+        localStorage.setItem("toDotasks", JSON.stringify(taskDoNow));
+    }
+        //console.log(taskDoNow)
+
+       renderdoNow();
+        taskToDo.remove();
+
+        })
 
         now_task_list.appendChild(taskToDo);
-
-        task_div.remove();
 
         const markDonebtn=taskToDo.querySelector(".task-done");
         markDonebtn.addEventListener("click",()=>{
@@ -150,9 +152,64 @@ function addTask(){
             taskTimerOver.style.display="block";
             taskTimerPopup.style.display="block";
         })
-})
+    });
+
     
-    })
+
+    taskProgress.innerHTML = `Progress : ${taskDoNow.length}`;
+
+
+}
+function addTask(){
+
+    //getting input data
+    let taskName=document.getElementById("taskInput");
+    let taskStart=document.getElementById("start-date");
+    let taskEnd=document.getElementById("end-date");
+    let taskTime=document.getElementById("start-time");
+
+
+    let taskP=document.getElementById("taskProgress");
+    let taskDiff=document.getElementById("taskDifficulty");
+    
+
+    //adding to objects
+    const taskObj={
+        task_name:taskName.value,
+        task_start:taskStart.value,
+        task_end:taskEnd.value,
+        task_pro:taskP.value,
+        task_diff:taskDiff.value,
+        task_time:taskTime.value
+    }
+    
+
+    //pushing into array
+    taskAdded.push(taskObj);
+    localStorage.setItem("tasks", JSON.stringify(taskAdded));
+
+
+    taskCount.innerHTML=`Task : ${taskAdded.length}`
+
+    //console.log(taskAdded);
+
+    //clearing inputs
+    taskName.value="";
+    taskStart.value="";
+    taskEnd.value="";
+
+    renderTask();
+
+
+   
+   
+    
+    }
+
+    window.onload = () => {
+    renderTask();
+    renderdoNow();
+};
     
     /*
     task_div.setAttribute("draggable", true);
@@ -184,7 +241,7 @@ function addTask(){
 
 const timerDisplay=document.getElementById("timer-display");
 
-}
+
 
 
 
@@ -216,9 +273,9 @@ function addSummary(taskObj){
 let hrs = 0, min = 0, sec = 0;
 let timer = null;
 
-let completeTime=null;
+let completeTime="";
 
-function setTime() {
+function setTime(taskObj) {
   let hours=document.getElementById("timer-hours").value;
   let minutes=document.getElementById("timer-minutes").value;
   let seconds=document.getElementById("timer-seconds").value ;
@@ -226,6 +283,10 @@ function setTime() {
   hrs=parseInt(hours)||0;
   min=parseInt(minutes)||0;
   sec=parseInt(seconds)||0;
+    
+
+
+  
 
   updateDisplay();
 }
@@ -234,7 +295,8 @@ function setTime() {
 function updateDisplay() {
 
     timerDisplay.innerText =hrs + ":" + min + ":" + sec;
-    completeTime=hrs + ":" + min + ":" + sec;
+    completeTime=hrs + ":" + min + ":" + sec
+   
 }
 
 
@@ -257,13 +319,14 @@ function run() {
 
 
 function startTimer() {
-  
-  timer=setInterval(run, 1000);
+  if(!timer)
+    timer=setInterval(run, 1000);
 }
 
 
 function pauseTimer() {
   clearInterval(timer);
+  timer=null;
   
 }
 
