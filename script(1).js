@@ -5,7 +5,7 @@ let btnAddTask=document.getElementById("add-task");
 let taskAdded=JSON.parse(localStorage.getItem("tasks"))||[] ;
 let taskDoNow=JSON.parse(localStorage.getItem("toDotasks"))||[];
 ;
-let taskMarkedDone=[];
+let taskMarkedDone=JSON.parse(localStorage.getItem("Donetasks"))||[];
 
 
 //let storeAddedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -59,13 +59,13 @@ function renderTask(){
         task_div.innerHTML = `
           <div class="taskobjheader">
                 <h3>${taskObj.task_name}</h3>
-                <p><span> From :</span> ${taskObj.task_start}</p>
+                <p ><span> From :</span> ${taskObj.task_start}</p>
           </div>
           
           <p class="task-drop">${taskObj.task_diff}</p>
           
           <p><span> To :</span> ${taskObj.task_end}
-          <button class="to-do-now">Move To Do</button></p>
+          <button class="to-do-now">Move To Do Now</button></p>
         `;
 
 
@@ -107,8 +107,16 @@ function renderdoNow(){
         taskToDo.className = "do-now";
 
         taskToDo.innerHTML = `
-          <p><span>Task:</span> ${taskObj.task_name}</p>
-          <p><span>Task:</span> ${taskObj.task_time}</p>
+          <span class="doNowName">${taskObj.task_name} 
+          <span class="duedate"> Due:  ${taskObj.task_end}</span>
+          </span>
+          <p class="task-drop-now">${taskObj.task_diff}</p>
+          <p class="task-time">${taskObj.task_time}</p>
+          
+          
+          
+          
+          
 
           <button class="set-timer">Set Timer</button>
           <button class="task-done">Mark done</button>
@@ -136,6 +144,7 @@ function renderdoNow(){
         const markDonebtn=taskToDo.querySelector(".task-done");
         markDonebtn.addEventListener("click",()=>{
             taskMarkedDone.push(taskObj);
+            localStorage.setItem("Donetasks", JSON.stringify(taskMarkedDone));
             taskDone.innerHTML=`Done : ${taskMarkedDone.length}`
 
             markDonebtn.innerHTML="done"
@@ -143,6 +152,8 @@ function renderdoNow(){
             markDonebtn.disabled=true;
             markDonebtn.style.backgroundColor="red";
             markDonebtn.style.color="white";
+
+
 
          })
 

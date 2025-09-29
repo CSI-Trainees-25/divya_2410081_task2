@@ -12,7 +12,7 @@ height: 100vh;
 
 }
 #summary, #start-all{
-    padding: 5px 10px;
+    padding: 1% 5%;
     background-color: #000B58;
     color: white;
     font-weight: 600;
@@ -21,7 +21,7 @@ height: 100vh;
     cursor: pointer;   
     transition: all .3s ease;
     box-shadow: 2px 3px 3px rgba(255, 255, 255, 0.252);
-    position: relative;
+   
     overflow: hidden;
 }
 #summary:active , #start-all:active{
@@ -31,7 +31,8 @@ height: 100vh;
 
 
 #summary{
-    margin-left: 40%;
+    margin-left: 0%;
+    margin-top: 1%;
 }
 
 #start-all{
@@ -53,12 +54,12 @@ height: 100vh;
 
 .main-container{
     
+
    height: 85%;
    border-radius: 10px;
-   width: 80%;
+   overflow: hidden;
    margin: 4.5% 12%;
     box-shadow: 2px 7px 10px rgba(226, 225, 225, 0.61);
-    background-color: #1e1e2f;
     padding: 20px 30px;
     backdrop-filter: blur(6px);
     
@@ -69,12 +70,10 @@ height: 100vh;
 
 .task-header{
     
-    height: 18%;
+    height: 15%;
     width: 100%;
-    background-color: #e1a01d;
+    background-color: #8E24AA;
     backdrop-filter: blur(6px);
-
-
     backdrop-filter: blur(4px);
     border-radius: 10px;
     display: flex;
@@ -88,14 +87,12 @@ height: 100vh;
 .header-details{
     display: flex;
     flex-wrap: wrap;
-
-    background-color: #134686;
     color: white;
     text-transform: capitalize;
     margin-right:2%;
     border-radius: 10px;
     padding: 1% 2%;
-    font-size:1.5rem;
+    font-size:1.8rem;
 }
 
 .header-details div{
@@ -114,7 +111,7 @@ height: 100vh;
     
     background-color: black;
     color: white;
-    margin-left: 35%;
+   margin-left: 20%;
 }
 
 .task-rem:hover{
@@ -140,6 +137,23 @@ height: 100vh;
     margin: 5px 10px;
     font-size: 1rem;
 
+  }
+
+  .task-header{
+    width: 100%;
+  }
+
+  
+  .do-now-heading{
+    flex-direction: column;
+  }
+
+  .doNowName{
+
+  }
+
+  .task-drop-now{
+    width: 100%;
   }
 
   .header-details{
@@ -183,6 +197,17 @@ height: 100vh;
     flex-wrap: wrap;
 }
 
+.do-now{
+    padding: 3% 3%;
+}
+.task-section{
+    flex-wrap: wrap;
+}
+
+
+
+
+
 
 
   
@@ -193,6 +218,7 @@ height: 100vh;
 .task-section{
     height: 80%;
     width: 100%;
+    transform: translateX();
     background-color: rgba(255, 255, 255, 0.886);
     border-radius: 10px;
     backdrop-filter: blur(6px);
@@ -204,21 +230,26 @@ height: 100vh;
 }
 
 .task-list{
-    overflow: scroll;
+    overflow: auto;
     height: 100%;
-    width: 60%;
+    width: 70%;
     border-radius: 10px 0px 0px 10px;
-    border: 4px solid rgb(104, 43, 104);
-    padding: 20px 10px;
+    border: 3px solid #8E24AA;
+    padding: 10px 10px;
 }
-
+.doNowName{
+    border-bottom: 2px solid rgba(75, 75, 75, 0.576);
+    padding-bottom:2%;
+    
+}
 .to-do{
     
     height: 100%;
-    width: 40%;
+    width: 30%;
     border-radius: 0px 10px 10px 0px;
-   border: 4px solid rgb(152, 63, 152);
-   overflow: scroll;
+    border: 3px solid #8E24AA;
+   overflow: auto;
+
    background-color: whitesmoke;
     
     
@@ -240,22 +271,20 @@ height: 100vh;
 }
 
 .add-task{
-    background-color: #134686;
+    background-color: #c945ed;
     margin-left: 20px;
-    padding: 10px 20px;
+    padding: 8px 10px;
     border-radius: 10px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.591);
     display: flex;
     align-items: center;
     gap: 5px;
     color: white;
    
-    border: 2px solid rgba(255, 166, 0, 0.451);
-    box-shadow: 2px 3px 4px rgb(113, 74, 0);
+
 }
 
-.add-task:hover{
-    
-}
+
 
 .add-task h1{
     font-size: 1.5rem;
@@ -276,8 +305,8 @@ height: 100vh;
     border-radius: 50%;
 }
 #add-task img{
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     background: transparent;
     transition: all .4s ease;
     
@@ -288,7 +317,7 @@ height: 100vh;
     justify-content: center;
     align-items: center;
     transition: all .3s ease;
-    box-shadow: 2px 3px 4px black;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.59);
     cursor: pointer;
     border: 2px solid rgba(128, 128, 128, 0.348);
 }
@@ -317,8 +346,9 @@ height: 100vh;
     background-color: rgba(255, 255, 255, 0.64);
 text-transform: capitalize;
    
-   padding: 2% 5%;
+   padding: 1% 2%;
    margin-top: 2%;
+   box-shadow: 2px 2px 3px  rgba(0, 0, 0, 0.445);
    border-radius: 10px;
     font-family: sans-serif;
     width: 100%;
@@ -336,8 +366,8 @@ text-transform: capitalize;
     font-size: 1rem;
     border: 2px solid rgba(0, 0, 0, 0.236);
     border-radius: 10px;
-    padding: 5px 3%;
-    
+    padding: 2px 1%;
+    border-radius: 5px;
     max-width: max-content;
 }
 
@@ -346,27 +376,23 @@ text-transform: capitalize;
     display: flex;
     gap: 1%;
 }
-.task-drop{
-    background-color: red;
-    color: white;
 
-   outline:none;
-   font-weight: 550;
-}
 
 .taskobjheader{
     margin-top: -10px;
-border-bottom: 2px solid black;
-
+    border-bottom: 2px solid rgba(0, 0, 0, 0.585);
+    
     display: flex;
-    padding-bottom: 3px;
+    padding-bottom: 1px;
     justify-content: space-between;
     align-items: center;
 }
 
 .task-div h3{
-    font-size: 2rem;
+    font-size: 1.2rem;
     margin-top: 10px;
+    font-weight: 550;
+    
     
 }
 
@@ -379,20 +405,20 @@ border-bottom: 2px solid black;
 
 }
 .to-do-now{
-    margin-left: 285px;
+    margin-left: 300px;
     padding: 10px 15px;
-    background-color: blue;
+    background-color: #8E24AA;
     color: white;
     border: none;
-    font-weight: 600;
+    margin-right: 5px;
     font-size: 1rem;
-    border-radius: 10px;
+    border-radius: 5px;
 
 }
 
 
 .do-now{
-   padding: 10px 20px;
+   padding: 8px 10px;
     border: 2px solid rgba(0, 0, 0, 0.442);
     box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.386);
    
@@ -402,16 +428,50 @@ border-bottom: 2px solid black;
 
 }
 
+
+.duedate{
+    font-weight: 400;
+    margin-left: 8%;
+    margin-right: 0;
+    margin-bottom: 8%;
+    font-size: .1rem;
+    border: 1px solid rgba(0, 0, 0, 0.598);
+    border-radius: 5px;
+    padding: 1%;
+}
 .do-now span{
-    font-weight: 600;
+    
     margin-right: 10px;
-    font-size: 1.2rem;
+    font-size: 1rem;
+}
+
+.task-time{
+    border-bottom: 2px solid rgba(75, 75, 75, 0.576);
+    padding-bottom:1%;
+    font-weight: 600;
+    font-size: 1.4rem;
+
+
+
+}
+
+
+
+.task-drop-now{
+background-color: #4CAF50;
+color: white;
+
+width: 70px;
+border-radius: 5px;
+
+padding: 1% 2%;
+margin:  3% 0px;
+border-bottom: 2px solid black;
+
+
+
 }
 .do-now p{
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  
 }
 
 
@@ -436,7 +496,7 @@ border-bottom: 2px solid black;
     background-color: green;
     border: none;
 padding: 5px 10px;
-
+margin-top: 2%;
 color: white;
  box-shadow: 2px 2px 1px black;
     cursor: pointer;
@@ -805,7 +865,12 @@ font-family: sans-serif;
 }
 
 .task-drop{
-    background-color: red;
+    background-color: #4CAF50;
+    color: white;
+    padding: 1% ;
+    font-size: .1rem;
+    border-radius: 2px;
+
 
 }
 
@@ -822,64 +887,17 @@ font-family: sans-serif;
    border: 2px solid rgba(255, 255, 255, 0.4);
     padding: 10px 20px;
     display: flex;
-    flex-direction: column;
 
+    transform: translate(100%);
 }
 
-.summary-header{
-    background-color: rgb(169, 110, 0);
-    border-radius: 10px;
-    padding: 5% 7%;
-    color: white;
-    font-family: sans-serif;
 
-    display: flex;
-    
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    height: 10%;
 
-}
-.summary-header h1{
-    font-family: sans-serif;
-    font-size: 3rem;
 
-}
-#summary-details{
-    background-color: rgba(255, 255, 255, 0.652);
-    min-height: 70%;
-    margin-top: 1%;
-    border-radius: 20px;
-    max-height: fit-content;
-    
-    overflow: scroll;
-}
 
-.summary-task{
-    border: 2px solid white;
-    border-radius: 15px;
-    background: transparent;
-    margin: 20px 30px;
-    padding: 8px 20px;
-    font-size: 1.5rem;
-    backdrop-filter: blur(6px);
-    
-    background-color: rgba(193, 193, 193, 0.507);
-}
 
-.summary-task h4{
-    text-transform: capitalize;
-    font-family: sans-serif;
-    font-size: 2rem;
-    border: 2px solid grey;
-    padding: 8px;
 
-    border-radius: 5px;
-margin-bottom: 10px;
 
-}
 
 .completed{
    
@@ -890,13 +908,7 @@ margin-bottom: 10px;
     
 }
 
-.summary-task p{
-    font-size: 1.1rem;
-    font-size: 550;
-    font-family: sans-serif;
-    
 
-}
 
 .completed button{
     background-color: rgb(0, 188, 0);

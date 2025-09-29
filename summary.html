@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .main-container{
+             height: 85%;
+   border-radius: 10px;
+   overflow: auto;
+   flex-direction: column;
+   overflow: hidden;
+   margin: 4.5% 12%;
+    box-shadow: 2px 7px 10px rgba(226, 225, 225, 0.61);
+    padding: 20px 30px;
+        }
+
+        .summary-header{
+             height: 12%;
+    width: 100%;
+    background-color: #8E24AA;
+    backdrop-filter: blur(6px);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+   font-size: 1rem;
+
+
+        }
+        .summary-header img{
+            height: 8%;
+            width: 8%;
+            transform: rotate(180deg);
+            filter: invert();
+            margin-left: 4%;
+
+        }
+        .summary-header img:active{
+            scale: .9;
+
+    
+        }
+
+            #done_task_div
+            {
+               
+                height: 400px;
+                overflow: auto;
+            }
+
+      
+            .done-task{
+                padding: 10px ;
+                border: 2px solid rgba(0, 0, 0, 0.494);
+                margin-top: 10px;
+                border-radius: 5px;
+                box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.552);
+
+            }
+
+            .task-time{
+                background-color: rgb(0, 186, 0);
+                color: white;
+                padding: 8px 10px;
+                border-radius: 5px;
+font-weight: 600;
+                border: none;
+                margin-left: 50%;
+                margin-top: 10px;
+                font-size: 2rem;
+
+                
+
+
+
+            }
+
+.taskobjheader{
+    display: flex;
+    border-bottom: 2px solid black;
+    
+
+
+}
+      
+.taskobjheader h2{
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  width: 200px;
+
+
+}
+
+.taskobjheader p{
+    margin-left: 60%;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 2px 5px;
+
+
+
+
+
+
+}
+
+
+.task-drop-sum{
+    font-size: 1rem;
+    background-color: red;
+    color: white;
+    display: block;
+    padding: .5%;
+    border-radius: 5px;
+    margin-top: .6%;
+    text-transform: capitalize;
+
+
+    width: 6.5%;
+    font-weight: 550;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+
+@media(max-width:768px){
+    .taskobjheader p{
+        margin-left: 10%;
+    }
+
+    .task-time{
+        margin-left: 35%;
+    }
+
+    .task-drop-sum{
+        width: 70px;
+
+    }
+}
+       
+
+        
+    </style>
+</head>
+<body>
+    <div class="main-container">
+
+
+        <div class="summary-header">
+            <a href="index.html"><img src="next.png" alt=""></a>
+            <h1>Final Report</h1>
+        </div>
+
+        <div class="summary-section" id="summary-section">
+            .
+            <div id="done_task_div"></div>
+        </div>
+
+    </div>
+
+    <script>
+
+       
+let done_tasks = JSON.parse(localStorage.getItem("Donetasks")) || [];
+
+
+let done_task_div = document.getElementById("done_task_div");
+
+done_task_div.innerHTML = "";
+
+
+done_tasks.forEach(task => {
+    let taskElement = document.createElement("div");
+    taskElement.className = "done-task"; 
+
+    taskElement.innerHTML = `
+        <div class="taskobjheader">
+                <h2>${task.task_name}</h2>
+                <p ><span>Completed :</span> ${task.task_end}</p>
+          </div>
+          <div class="task-drop-sum">${task.task_diff}</div>
+
+          <button class="task-time">${task.task_time}</button>
+          
+          
+       
+
+    `;
+
+    done_task_div.appendChild(taskElement);
+});
+
+
+    </script>
+</body>
+</html>
